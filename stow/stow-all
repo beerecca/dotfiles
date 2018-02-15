@@ -1,0 +1,11 @@
+#!/bin/bash
+
+set -e
+
+(
+  cd ~/Projects/dotfiles
+  # setup stow first
+  stow stow
+  # then stow everything else
+  ls -d */ | grep -v _ | grep -v stow | xargs -I {} stow {}
+)

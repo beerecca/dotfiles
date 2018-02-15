@@ -7,7 +7,7 @@ Once configured, running `stow <directory>` will instruct stow to create symlink
 
 ## Installation
 
-We've included `stow` in the Brewfile in this repo. But to install manually run:
+The Brewfile in this repo includes `stow`. But to install manually run:
 
 ```bash
 brew install stow

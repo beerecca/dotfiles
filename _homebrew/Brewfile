@@ -1,10 +1,44 @@
-awscli
-git
-hub
-mongodb
-nvm
-stow
-tmux
-vim
-yarn
-zsh
+brew 'autojump'
+#brew 'awscli'
+brew 'bash'
+brew 'bash-completion'
+brew 'colordiff'
+brew 'curl'
+brew 'diff-so-fancy'
+brew 'ffmpeg'
+brew 'git'
+brew 'grep'
+brew 'heroku'
+brew 'httpie'
+brew 'hub'
+brew 'imagemagick'
+brew 'mongodb'
+brew 'node'
+brew 'nvm'
+brew 'ruby'
+brew 'shellcheck'
+brew 'stow'
+brew 'tldr'
+brew 'tree'
+brew 'vim'
+brew 'watchman'
+brew 'wget'
+brew 'yarn'
+brew 'zsh'
+
+tap 'caskroom/cask'
+cask_args appdir: '/Applications'
+
+cask 'alfred'
+cask 'android-file-transfer'
+cask 'docker'
+cask 'iterm2'
+cask 'google-chrome'
+cask 'recordit'
+cask 'robo-3t'
+cask 'postman'
+cask 'sketch'
+cask 'slack'
+cask 'skype'
+cask 'visual-studio-code'
+cask 'vlc'

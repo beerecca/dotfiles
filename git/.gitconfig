@@ -1,0 +1,156 @@
+[include]
+  # Store sensitive git info or machine specific config in a ~/.gitconfig.local.
+  path = ~/.gitconfig.local
+
+[core]
+  # Use .gitignore in your $HOME directory for global gitignores.
+  excludesfile = ~/.gitignore
+
+[merge]
+  # Always include a summary in merge commits.
+  summary = true
+
+[push]
+  # Default push to update current branch on remote. Then you don't need to type
+  # out an upstream name when creating a new upstream branch. e.g. To push a new
+  # branch to remote just do `git push -u`.
+  default = current
+
+[fetch]
+  # Always prune refs when fetching.
+  prune = true
+
+[help]
+	# Automatically correct and execute mistyped commands
+	autocorrect = 1
+
+[tag]
+  # When listing tags sort by date.
+  sort = -*authordate
+
+[pager]
+  # Use diff-so-fancy: https://github.com/so-fancy/diff-so-fancy
+  # The diff-so-fancy script is in git/bin. Ensure that after stowing your ~/bin
+  # folder is in your $PATH.
+  # Diff-so-fancy is piped into less when output is longer than screen (-F)
+  # Also leave result on screen after exiting less (-X).
+  log = diff-so-fancy | less -F -X
+  show = diff-so-fancy | less -F -X
+  diff = diff-so-fancy | less -F -X
+
+[interactive]
+  # Enables diff-so-fancy on git add --patch
+  diffFilter = diff-so-fancy
+
+[color]
+	# Use colors in Git commands that are capable of colored output when
+	# outputting to the terminal. (This is the default setting in Git ≥ 1.8.4.)
+	ui = auto
+
+[color "branch"]
+	current = yellow reverse
+	local = yellow
+	remote = green
+
+[color "diff"]
+	meta = yellow
+	frag = magenta bold
+  commit = yellow bold
+	old = red
+	new = green
+  whitespace = red reverse
+
+[color "diff-highlight"]
+  oldNormal = red
+  oldHighlight = red 52
+  newNormal = green
+  newHighlight = green 22
+
+[color "status"]
+	added = yellow
+	changed = green
+	untracked = cyan
+
+###############################################
+# ALIASES
+###############################################
+#
+# Aliases allow you to add new git commands. These can be just shortcuts to
+# common git commands or mapped to scripts that add new functionality.
+#
+# These are a few that we find useful. But as with any config, it's personal.
+
+[alias]
+
+  # LOGGING
+  ###############################################
+
+  # Pretty logging.
+  log-pretty = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(blue)<%an>%Creset' --abbrev-commit
+  l = log-pretty
+
+  # Log recent commits.
+  log-recent = !git log-pretty -12
+  r = log-recent
+
+  # Log commits that diverge from origin/master. Useful for seeing what commits
+  # you've made on a feature branch.
+  log-diverged = !git log-pretty origin/master..$(git symbolic-ref --short HEAD)
+  ld = log-diverged
+
+  # Get the most recent tag.
+  latest-tag-version = "!git tag --list --sort='-*authordate' 'v*' | head -n 1"
+
+  # Log the commits since the latest tag.
+  log-tag = !git log-pretty $(git latest-tag-version)..HEAD
+  lt = log-tag
+  
+
+  # WORKFLOW
+  ###############################################
+
+  st = status --short
+  ci = commit --verbose # Verbose commit. Shows diff in commit message editor.
+  cm = commit --message
+  co = checkout
+  di = diff # Diff of unstaged changes.
+  dc = diff --cached # Diff of staged changes.
+  ad = add --patch
+  aa = add --all
+  pu = push
+  sh = stash
+  sa = stash apply
+
+  # If you need to force push it's recommended that you use force-with-lease.
+  # This ensures that if any new commits were added to the remote branch since
+  # you last pulled that the push will fail.
+  pf = push --force-with-lease
+
+  # Hard reset to match remote exactly, interactively delete untracked files
+  rh = !git fetch && git reset --hard && git clean -i
+
+  # Amend the currently staged files to the latest commit
+	am = commit --amend --reuse-message=HEAD
+
+  # Create pull request and open url: https://hub.github.com/
+  pr = pull-request -o
+
+  # Switch to this when hub updates (also pushes and adds reviewers)
+  # pr = pull-request -por @usabilla/mallard
+
+  # BRANCHES
+  ###############################################
+
+  br = branch -lvv # Verbose branch list. Shows upstream branches.
+  fe = fetch --all # Fetch all references.
+
+  # Delete any branches already merged into master.
+  # RISK: Quite safe. Soft deletes. Ensures that all commits in the branch are
+  # in master before deleting.
+  prune-local = "!git branch --merged | grep -v \"\\*\\|master\" | xargs -n 1 git branch -d && echo \"Merged branches pruned.\""
+
+  # Prune "gone" branches. Deletes any branches that have an upstream that has
+  # been deleted. Useful when squash merging branches via github.
+  # RISK: Use with care. Does a hard delete (-D). Deletes a branch if it once
+  # had an upstream branch that has since been deleted.
+  prune-gone = "!git checkout master --quiet && git branch -lvv | grep \"gone\\]\" | sed -e 's/^ *//' | cut -d ' ' -f 1 | while read branch; do git branch -D $branch; done; echo 'Gone branches pruned.'"
