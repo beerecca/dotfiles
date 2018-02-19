@@ -7,6 +7,9 @@ alias mv='mv -vi'
 alias mkdir="mkdir -pv"
 alias tree="tree -C -L 4 -I node_modules"
 alias diff="colordiff -y"
+function cdls() { 
+    cd "$@" && ls; 
+}
 
 # Shell
 alias reshell="source ~/.bashrc"
