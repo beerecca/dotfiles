@@ -13,7 +13,13 @@ function cdls() {
 
 # Shell
 alias reshell="source ~/.bashrc"
-alias restow="~/Projects/dotfiles/stow/stow-all"
+alias restow="~/Projects/dotfiles/stow/stow-all && source ~/.bashrc"
+
+# Ngrok
+alias ngrok="~/ngrok"
+
+# Bundler
+alias be="bundle exec"
 
 # Navigation
 alias ~="cd ~"
@@ -34,6 +40,10 @@ alias hidedeskicons="defaults write com.apple.finder CreateDesktop -bool false &
 # Git
 alias g="git"
 alias gs="git status"
+function gp() {
+    git commit -m $1
+    git push
+}
 function gc() {
     git checkout -b $1
     git push --set-upstream origin $1
