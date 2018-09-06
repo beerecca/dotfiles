@@ -40,8 +40,9 @@ alias hidedeskicons="defaults write com.apple.finder CreateDesktop -bool false &
 # Git
 alias g="git"
 alias gs="git status"
+alias ga="git add . -v"
 function gp() {
-    git commit -m $1
+    git commit -m "$1"
     git push
 }
 function gc() {

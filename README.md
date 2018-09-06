@@ -3,6 +3,7 @@
 My collection of configuration files for development.
 
 ### What are dotfiles?
+
 Dotfiles are files/directories with a `.` prepended to their name. For example, `.bashrc`. The leading dot is used as an indicator that these are hidden configuration files. People tend to backup and also share their dotfiles as they contain super useful tools and shortcuts that make developing easier. An example of a site dedicated to sharing dotfiles is <http://dotfiles.org>.
 
 **Fun dotfiles fact!**
@@ -10,6 +11,8 @@ Dotfiles are files/directories with a `.` prepended to their name. For example, 
 > The legend goes that dotfiles arose from a bug in the earliest days of UNIX: in an effort to avoid listing the `.` and `..` entries of a directory, the `ls` command skipped files that _began_ with the `.` character. As a result, any file with a name beginning with `.` was not reported by `ls`, i.e. it was a "hidden" file. A user's home directory was a convenient place to put user-specific configuration files, but such files were also an eyesore; one popular solution to this problem was to make those configuration files hidden so that they wouldn't annoy the user. Thus, the tradition of dotfiles was born.
 
 **Using this repo**
+
+If you have git setup, you can just clone this repo. Otherwise:
 
 First create a directory to store your dotfiles.
 
@@ -29,7 +32,7 @@ curl -L https://api.github.com/repos/beerecca/dotfiles/tarball | tar xz --strip=
 
 Homebrew is a package manager for macOS. It's really useful for installing many packages that you'll need but don't come pre-installed on macOS. We've setup a list of packages that are useful to install straight away.
 
-First [install brew]((https://brew.sh/)). Then install the default brew packages defined in our Brewfile:
+First [install brew](<(https://brew.sh/)>). Then install the default brew packages defined in our Brewfile:
 
 ```
 cd _homebrew
@@ -67,7 +70,6 @@ stow vim
 ```
 
 [Read more](https://alexpearce.me/2016/02/managing-dotfiles-with-stow/) about using stow for dotfiles.
-
 
 **Congrats!**
 
