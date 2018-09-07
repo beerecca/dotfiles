@@ -41,6 +41,12 @@ alias hidedeskicons="defaults write com.apple.finder CreateDesktop -bool false &
 alias g="git"
 alias gs="git status"
 alias ga="git add . -v"
+alias gpyolo="git push --force-with-lease"
+function gryolo() {
+    git fetch
+    git reset --hard origin/master
+    git clean -f -d
+}
 function gp() {
     git commit -m "$1"
     git push
