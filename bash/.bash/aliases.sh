@@ -50,8 +50,22 @@ function gryolo() {
 function gp() {
     git commit -m "$1"
     git push
+    gpr
 }
 function gc() {
     git checkout -b $1
     git push --set-upstream origin $1
+}
+function gpr() {
+  to_branch=$1
+  if [ -z $to_branch ]; then
+    to_branch="master"
+  fi
+  
+  origin=$(git config --get remote.origin.url)
+  user=$(echo $origin | sed -e 's/.*[\/:]\([^/]*\)\/[^/]*$/\1/')
+  repo=$(basename `git rev-parse --show-toplevel`)
+  from_branch=$(git rev-parse --abbrev-ref HEAD)
+
+  open "https://github.com/$user/$repo/compare/$to_branch...$from_branch?expand=1"
 }
