@@ -15,12 +15,6 @@ function cdls() {
 alias reshell="source ~/.bashrc"
 alias restow="~/Projects/dotfiles/stow/stow-all && source ~/.bashrc"
 
-# Ngrok
-alias ngrok="~/ngrok"
-
-# Bundler
-alias be="bundle exec"
-
 # Navigation
 alias ~="cd ~"
 alias ..="cd .."
