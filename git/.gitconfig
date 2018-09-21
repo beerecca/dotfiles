@@ -10,6 +10,9 @@
   # Always include a summary in merge commits.
   summary = true
 
+[pull]
+  rebase = true
+
 [push]
   # Default push to update current branch on remote. Then you don't need to type
   # out an upstream name when creating a new upstream branch. e.g. To push a new
@@ -136,7 +139,7 @@
   pr = pull-request -o
 
   # Switch to this when hub updates (also pushes and adds reviewers)
-  # pr = pull-request -por @usabilla/mallard
+  # pr = pull-request -por <team name>
 
   # BRANCHES
   ###############################################

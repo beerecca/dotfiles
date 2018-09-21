@@ -31,6 +31,11 @@ alias hidedotfiles="defaults write com.apple.finder AppleShowAllFiles -bool fals
 alias showdeskicons="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
 alias hidedeskicons="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
 
+# Yarn
+function yw() {
+    yarn run jest --watch --testPathPattern=$1
+}
+
 # Git
 alias g="git"
 alias gs="git status"
