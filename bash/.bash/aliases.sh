@@ -41,6 +41,7 @@ alias g="git"
 alias gs="git status"
 alias ga="git add . -v"
 alias gpyolo="git push --force-with-lease"
+alias gstash="git stash -u"
 function gryolo() {
     git fetch
     git reset --hard origin/master
