@@ -13,6 +13,9 @@
 [pull]
   rebase = true
 
+[rebase]
+  autoStash = true
+
 [push]
   # Default push to update current branch on remote. Then you don't need to type
   # out an upstream name when creating a new upstream branch. e.g. To push a new
