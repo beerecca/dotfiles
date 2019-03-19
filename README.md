@@ -12,7 +12,7 @@ Dotfiles are files/directories with a `.` prepended to their name. For example, 
 
 **Using this repo**
 
-If you have git setup, you can just clone this repo. Otherwise:
+If you have git setup, you can just clone this repo (or even better, create a fork and then clone that). Otherwise:
 
 First create a directory to store your dotfiles.
 
@@ -42,7 +42,7 @@ brew bundle
 
 **Installing the dotfiles packages**
 
-Each of the folders in this repo is a "dotfiles package". They contain configuration files and scripts that are useful when using that tool. They also each include a README with more info and suggestions. You can use `stow` to easily install these packages into your $HOME directory.
+Each of the folders in this repo is a "dotfiles package". They contain configuration files and scripts that are useful when using that tool. They also each include a README with more info and suggestions. You can use `stow` to easily install (symlink) these packages into your $HOME directory.
 
 If you followed the homebrew step `stow` will have already been installed. If not run: `brew install stow`.
 
@@ -70,6 +70,9 @@ stow vim
 ```
 
 [Read more](https://alexpearce.me/2016/02/managing-dotfiles-with-stow/) about using stow for dotfiles.
+
+**Editing the dotfiles packages**
+If you want to edit your dotfiles, always do so in the `dotfiles` project where you originally cloned this repo. Then run `restow` to update the symlinks, and `reshell` to restart your terminal.
 
 **Congrats!**
 
