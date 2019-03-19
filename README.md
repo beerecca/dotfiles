@@ -72,6 +72,7 @@ stow vim
 [Read more](https://alexpearce.me/2016/02/managing-dotfiles-with-stow/) about using stow for dotfiles.
 
 **Editing the dotfiles packages**
+
 If you want to edit your dotfiles, always do so in the `dotfiles` project where you originally cloned this repo. Then run `restow` to update the symlinks, and `reshell` to restart your terminal.
 
 **Congrats!**
