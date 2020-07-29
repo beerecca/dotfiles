@@ -1,5 +1,12 @@
+tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/core"
+tap "homebrew/services"
+cask_args appdir: "~/Applications"
+
 brew 'autojump'
-#brew 'awscli'
+brew 'apollo-cli'
+brew 'awscli'
 brew 'bash'
 brew 'bash-completion'
 brew 'colordiff'
@@ -26,19 +33,24 @@ brew 'wget'
 brew 'yarn'
 brew 'zsh'
 
-tap 'caskroom/cask'
-cask_args appdir: '/Applications'
-
 cask 'alfred'
 cask 'android-file-transfer'
 cask 'docker'
 cask 'iterm2'
+cask 'firefox'
+cask 'flux'
 cask 'google-chrome'
+cask 'handbrake'
 cask 'recordit'
 cask 'robo-3t'
+cask 'mullvadvpn'
 cask 'postman'
 cask 'sketch'
 cask 'slack'
+cask 'sourcetree'
+cask 'spotify'
+cask 'spotify-now-playing'
 cask 'skype'
+cask 'transmission'
 cask 'visual-studio-code'
 cask 'vlc'

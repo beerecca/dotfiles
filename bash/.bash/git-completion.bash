@@ -1,5 +1,11 @@
 # bash/zsh completion support for core Git.
-#
+
+# There are no aliases or helper functions for you to learn/use in here
+# This file just adds tab completion when you're using Git
+# For example type `git chec` and press tab - it will autocomplete 
+# to `git checkout`. Same thing for your branch names etc, as listed below.
+# So it's pretty damn useful, don't delete it!
+
 # Copyright (C) 2006,2007 Shawn O. Pearce <spearce@spearce.org>
 # Conceptually based on gitcompletion (http://gitweb.hawaga.org.uk/).
 # Distributed under the GNU General Public License, version 2.0.

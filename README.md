@@ -1,6 +1,6 @@
 # dotfiles
 
-My collection of configuration files for development.
+My collection of configuration files for development. Particularly useful to set up a new computer quickly! Keep in mind I've built these for myself so they will need some tweaking if you want to use them.
 
 ### What are dotfiles?
 
@@ -12,7 +12,7 @@ Dotfiles are files/directories with a `.` prepended to their name. For example, 
 
 **Using this repo**
 
-If you have git setup, you can just clone this repo (or even better, create a fork and then clone that). Otherwise:
+Fork this repo to create your own dotfiles, then clone that. Or, if you're just setting up your computer and you don't have git yet:
 
 First create a directory to store your dotfiles.
 
@@ -30,19 +30,17 @@ curl -L https://api.github.com/repos/beerecca/dotfiles/tarball | tar xz --strip=
 
 **Installing homebrew**
 
-Homebrew is a package manager for macOS. It's really useful for installing many packages that you'll need but don't come pre-installed on macOS. We've setup a list of packages that are useful to install straight away.
+Homebrew is a package manager for macOS. This repo includes a list of packages that are useful to install straight away.
 
-First [install brew](<(https://brew.sh/)>). Then install the default brew packages defined in our Brewfile:
+First [install brew](<(https://brew.sh/)>). Then install the brew packages defined in the Brewfile in this repo:
 
 ```
-cd _homebrew
-brew tap homebrew/bundle
-brew bundle
+brew bundle --file _homebrew/Brewfile
 ```
 
 **Installing the dotfiles packages**
 
-Each of the folders in this repo is a "dotfiles package". They contain configuration files and scripts that are useful when using that tool. They also each include a README with more info and suggestions. You can use `stow` to easily install (symlink) these packages into your $HOME directory.
+Each of the folders in this repo is a "dotfiles package". They contain configuration files and scripts that are useful when using that tool. They also each include a README with more info and suggestions. You can use `stow` to easily install (symlink) these packages into your \$HOME directory.
 
 If you followed the homebrew step `stow` will have already been installed. If not run: `brew install stow`.
 
@@ -53,9 +51,9 @@ cd stow
 cp .stowrc.example .stowrc
 ```
 
-Now set the `--target` property in that file to point to your $HOME directory. e.g. `--target=/Users/gertrude`.
+Now set the `--target` property in that file to point to your \$HOME directory. e.g. `--target=/Users/gertrude`. This file creates the default command line options for when you run stow.
 
-Then, from the root of your dotfiles folder, run the following command to set up our default `stow` configuration that we'll need later.
+Then, from the root of your dotfiles folder, run the following command to create a symlink for all the files in this repo's stow folder to your home directory (aka the target, aka `~`, aka `/Users/gertrude`).
 
 ```
 stow -t ~ stow
@@ -71,9 +69,12 @@ stow vim
 
 [Read more](https://alexpearce.me/2016/02/managing-dotfiles-with-stow/) about using stow for dotfiles.
 
+**Running the macos script**
+Run `bash .macos` to configure lots of handy settings for your Mac.
+
 **Editing the dotfiles packages**
 
-If you want to edit your dotfiles, always do so in the `dotfiles` project where you originally cloned this repo. Then run `restow` to update the symlinks, and `reshell` to restart your terminal.
+If you want to edit your dotfiles, always do so in the `dotfiles` project where you originally cloned this repo. Then run `restow` to update the symlinks and restart your terminal.
 
 **Congrats!**
 

@@ -5,10 +5,8 @@
 export CLICOLOR=1
 
 # Add executables to the path variable, so shell can find them. Type `set` to review all env vars.
-export PATH="/Users/bex/Android/platform-tools:$PATH"
 export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
-export PATH="$PATH:`yarn global bin`"
-export GOPATH=/Users/bex/Projects/go
+export PATH="$(yarn global bin):$PATH"
 
 # Set up nvm
 export NVM_DIR="$HOME/.nvm"
@@ -26,3 +24,19 @@ export NVM_DIR="$HOME/.nvm"
 
 # Autocorrect typos in path names when using `cd`
 shopt -s cdspell
+
+# Append to the Bash history file, rather than overwriting it
+shopt -s histappend;
+
+# Case-insensitive globbing (used in pathname expansion)
+shopt -s nocaseglob;
+
+# Update the value of LINES and COLUMNS after each command if altered
+shopt -s checkwinsize   
+
+# Add failed commands to the bash history
+shopt -s histreedit
+
+# Append to history and re-read new history lines immediately
+# In order to preserve bash history in multiple terminal windows
+PROMPT_COMMAND="history -a; history -n; ${PROMPT_COMMAND}"

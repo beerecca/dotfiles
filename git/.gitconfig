@@ -21,14 +21,25 @@
   # out an upstream name when creating a new upstream branch. e.g. To push a new
   # branch to remote just do `git push -u`.
   default = current
+  # Make `git push` push relevant annotated tags when pushing branches out.
+  followTags = true
 
 [fetch]
   # Always prune refs when fetching.
   prune = true
+  pruneTags = true
 
 [help]
 	# Automatically correct and execute mistyped commands
 	autocorrect = 1
+
+[branch]
+	# Show most recently changed branches first.
+	sort = -committerdate
+
+[diff]
+  # Detect copies as well as renames.
+  renames = copies
 
 [tag]
   # When listing tags sort by date.
@@ -83,8 +94,7 @@
 #
 # Aliases allow you to add new git commands. These can be just shortcuts to
 # common git commands or mapped to scripts that add new functionality.
-#
-# These are a few that we find useful. But as with any config, it's personal.
+# For example, running `git st` is the equivalent of `git status --short`.
 
 [alias]
 
@@ -95,8 +105,8 @@
   log-pretty = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(blue)<%an>%Creset' --abbrev-commit
   l = log-pretty
 
-  # Log recent commits.
-  log-recent = !git log-pretty -12
+  # Log last 15 commits.
+  log-recent = !git log-pretty -15
   r = log-recent
 
   # Log commits that diverge from origin/master. Useful for seeing what commits
@@ -111,44 +121,8 @@
   log-tag = !git log-pretty $(git latest-tag-version)..HEAD
   lt = log-tag
   
-
-  # WORKFLOW
-  ###############################################
-
-  st = status --short
-  ci = commit --verbose # Verbose commit. Shows diff in commit message editor.
-  cm = commit --message
-  co = checkout
-  di = diff # Diff of unstaged changes.
-  dc = diff --cached # Diff of staged changes.
-  ad = add --patch
-  aa = add --all
-  pu = push
-  sh = stash
-  sa = stash apply
-
-  # If you need to force push it's recommended that you use force-with-lease.
-  # This ensures that if any new commits were added to the remote branch since
-  # you last pulled that the push will fail.
-  pf = push --force-with-lease
-
-  # Hard reset to match remote exactly, interactively delete untracked files
-  rh = !git fetch && git reset --hard && git clean -i
-
-  # Amend the currently staged files to the latest commit
-	am = commit --amend --reuse-message=HEAD
-
-  # Create pull request and open url: https://hub.github.com/
-  pr = pull-request -o
-
-  # Switch to this when hub updates (also pushes and adds reviewers)
-  # pr = pull-request -por <team name>
-
   # BRANCHES
   ###############################################
-
-  br = branch -lvv # Verbose branch list. Shows upstream branches.
-  fe = fetch --all # Fetch all references.
 
   # Delete any branches already merged into master.
   # RISK: Quite safe. Soft deletes. Ensures that all commits in the branch are

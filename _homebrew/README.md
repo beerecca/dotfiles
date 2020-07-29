@@ -2,14 +2,18 @@
 
 Homebrew is "the missing package manager for macOS". Follow the instructions on the website to [install](https://brew.sh/).
 
+`tap`: Git repository of formulae that you can add to the list that brew tracks, updates, and installs from. The `homebrew/core` tap list (included when you download homebrew) is here: https://formulae.brew.sh/formula/.
+`formula`: A package definition written in Ruby
+`cask`: An extension of Homebrew to install macOS native apps
+
 Once installed, install default packages by running this command in this folder.
+
 ```
-brew tap homebrew/bundle
 brew bundle
 ```
 
 - autojump: `j dirname` to jump to directory, `j -s` to view db, `j -a` to add path
-- awscli: `aws` for Amazon Web Services 
+- awscli: `aws` for Amazon Web Services
 - bash
 - bash_completion
 - colordiff: `diff filename filename` for nice diffs

@@ -1,8 +1,6 @@
-VIM CHEAT SHEET
-===============
+# VIM CHEAT SHEET
 
-Basics
-------
+## Basics
 
     :o [file]   Open file
     :w [file]   Save as
@@ -11,8 +9,7 @@ Basics
     :wq         Write and quit
     :q!         Quit without saving
 
-Cursor movement
----------------
+## Cursor movement
 
     h           Move cursor left
     j           Move cursor down
@@ -50,8 +47,7 @@ Cursor movement
     n           Jump to next occurence of searched text
     N           Jump to previous occurence of searched text
 
-Insert mode
------------
+## Insert mode
 
     i           Insert before cursor
     I           Insert at the beginning of line
@@ -61,15 +57,14 @@ Insert mode
     O           Open new line above current line
     Esc         Exit insert mode
 
-The true beauty and power lies in combining them with cursor movements:
+The true power lies in combining them with cursor movements:
 
     ea          Append after current word
     bi          Insert before current word
     fxi         Insert before the first occurence of character x
     3Go         Open new line below line 8
 
-Editing
--------
+## Editing
 
     u           Undo
     Ctrl + r    Redo
@@ -82,7 +77,7 @@ Editing
     ~           Switch case of single character
     .           Repeat the last command
 
-Copy and pasting
+## Copy and pasting
 
     x           Delete character
     dw          Delete word
@@ -95,8 +90,7 @@ Copy and pasting
     3dd         Delete 3 lines
     y3w         Yank 3 words
 
-Marking text
-------------
+## Marking text
 
     v           Start visual mode
     V           Start linewise visual mode
@@ -107,7 +101,7 @@ Marking text
     U           Change marked text to uppercase
     Esc         Exit visual mode
 
-Especially useful in combination with copy and pasting.
+## Especially useful in combination with copy and pasting.
 
     v2wy        Yank (copy) 2 words
     V8ly        Yank 8 lines above
