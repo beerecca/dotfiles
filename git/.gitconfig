@@ -5,6 +5,7 @@
 [core]
   # Use .gitignore in your $HOME directory for global gitignores.
   excludesfile = ~/.gitignore
+	autocrlf = input
 
 [merge]
   # Always include a summary in merge commits.
@@ -20,13 +21,13 @@
   # Default push to update current branch on remote. Then you don't need to type
   # out an upstream name when creating a new upstream branch. e.g. To push a new
   # branch to remote just do `git push -u`.
-  default = current
+	default = current
   # Make `git push` push relevant annotated tags when pushing branches out.
   followTags = true
 
 [fetch]
   # Always prune refs when fetching.
-  prune = true
+	prune = true
   pruneTags = true
 
 [help]
@@ -36,6 +37,9 @@
 [branch]
 	# Show most recently changed branches first.
 	sort = -committerdate
+
+[rerere]
+	enabled = true
 
 [diff]
   # Detect copies as well as renames.

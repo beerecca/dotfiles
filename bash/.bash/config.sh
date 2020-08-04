@@ -10,7 +10,7 @@ export PATH="$(yarn global bin):$PATH"
 
 # Set up nvm
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Set up hub and alias git to use hub (https://hub.github.com/)
@@ -40,3 +40,6 @@ shopt -s histreedit
 # Append to history and re-read new history lines immediately
 # In order to preserve bash history in multiple terminal windows
 PROMPT_COMMAND="history -a; history -n; ${PROMPT_COMMAND}"
+
+# Prevent bash deprecation warning
+export BASH_SILENCE_DEPRECATION_WARNING=1
