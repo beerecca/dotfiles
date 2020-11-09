@@ -36,7 +36,10 @@ alias hidedeskicons="defaults write com.apple.finder CreateDesktop -bool false &
 
 # Jest
 function jw() {
-    yarn run jest --watch --testPathPattern=$1
+    DEBUG_PRINT_LIMIT=7000 yarn run jest --watch --testPathPattern=$1
+}
+function jwl() {
+    DEBUG_PRINT_LIMIT=12000 yarn run jest --watch --testPathPattern=$1
 }
 
 # Git
