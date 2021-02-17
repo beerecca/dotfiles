@@ -59,6 +59,8 @@ alias gf="git fetch --all"
 
 # Git | Edit
 function gnew() {
+    git checkout master
+    git pull
     git checkout -b $1
     git push --set-upstream origin $1
 }
