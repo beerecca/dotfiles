@@ -19,7 +19,7 @@ Can trust these commands will confirm/help you when you use them!
 
 ### New Laptop
 
-Remember to also copy your iTerm, VSCode and Alfred settings.
+Remember to also copy your iTerm and Raycast settings (in Google Drive), and activate VSCode Settings Sync.
 
 ### Git
 
