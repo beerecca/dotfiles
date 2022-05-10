@@ -5,4 +5,5 @@ source $HOME/.bash/git-completion.bash
 source $HOME/.bash/aliases.sh
 # source $HOME/.bash/usabilla.sh
 # source $HOME/.bash/wetransfer.sh
+source $HOME/.bash/zoopla.sh
 source $HOME/.bash/serve.sh

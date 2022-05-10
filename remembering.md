@@ -19,7 +19,29 @@ Can trust these commands will confirm/help you when you use them!
 
 ### New Laptop
 
-Remember to also copy your iTerm and Raycast settings (in Google Drive), and activate VSCode Settings Sync.
+- Settings > Trackpad > Tap to click
+- Log into your Apple ID
+- Dotfiles
+- Copy your iTerm (settings and default profile) from Google Drive
+- Copy Raycast settings from Google Drive
+- Activate VSCode Settings Sync (Code > Preferences > Settings Sync)
+- Add any shortcuts to /etc/hosts
+- AWS CLI
+- VPN
+- Github and/or Gitlab
+- Any local code
+
+### AWS CLI
+
+To use the normal aws cli:
+`aws sso login`
+`aws s3 ls --profile portal_sandbox_superuser`
+
+Terraform and Serverless can't use aws cli with sso, so you can either export the credentials from logging into the UI and grabbing them from the "Command line or programmatic access", or you can use aws-vault (which essentially exports creds), for example:
+`aws-vault login portal_sandbox_superuser`
+`aws-vault exec portal_sandbox_superuser -- aws s3 ls`
+
+Note that the credentials file is only needed because of a known issue where Serverless only reads from credentials, not config.
 
 ### Git
 

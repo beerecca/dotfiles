@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+echo "Updating the Dock icons"
+
+cp -v com.apple.dock.plist ~/Library/Preferences/com.apple.dock.plist
+defaults read /Users/username/Library/Preferences/com.apple.dock.plist
+killall Dock
